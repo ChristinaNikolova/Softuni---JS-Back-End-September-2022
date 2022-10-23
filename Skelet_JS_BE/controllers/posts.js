@@ -12,16 +12,16 @@
 //     res.render('create', { title: 'Create Post' });
 // });
 
-// router.post('/create', isUser(), async (req, res) => {
+// router.post('/create', isUser(), trimBody(), async (req, res) => {
 //     const userId = req.session.user._id;
 //     NUMBER
 //     const post = {
-//         title: req.body.title.trim(),
-//         keyword: req.body.keyword.trim(),
-//         location: req.body.location.trim(),
-//         date: req.body.date.trim(),
-//         image: req.body.image.trim(),
-//         description: req.body.description.trim(),
+//         title: req.body.title,
+//         keyword: req.body.keyword,
+//         location: req.body.location,
+//         date: req.body.date,
+//         image: req.body.image,
+//         description: req.body.description,
 //         author: userId,
 //     };
 
@@ -110,7 +110,7 @@
 //     res.render('edit', { title: 'Edit Post', post });
 // });
 
-// router.post('/edit/:id', isUser(), async (req, res) => {
+// router.post('/edit/:id', isUser(), trimBody(), async (req, res) => {
 //     const postId = req.params.id;
 //     const dbPost = postViewModel(await getById(postId));
 //     const userId = req.session.user._id;
@@ -118,12 +118,12 @@
 //     NUMBER
 //     const post = {
 //         _id: dbPost._id,
-//         title: req.body.title.trim(),
-//         keyword: req.body.keyword.trim(),
-//         location: req.body.location.trim(),
-//         date: req.body.date.trim(),
-//         image: req.body.image.trim(),
-//         description: req.body.description.trim(),
+//         title: req.body.title,
+//         keyword: req.body.keyword,
+//         location: req.body.location,
+//         date: req.body.date,
+//         image: req.body.image,
+//         description: req.body.description,
 //     };
 
 //     try {
