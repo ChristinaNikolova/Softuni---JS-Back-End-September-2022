@@ -1,0 +1,48 @@
+<section id="catalog-section">
+    <h1 class="item">{{auction.title}}
+        {{#if auction.isAuthor}}
+        <div class="f-right">
+            <a class="action pad-small f-left" href="/edit/{{auction._id}}">Edit</a>
+            <a class="action pad-small f-left" href="/delete/{{auction._id}}">Delete</a>
+        </div>
+        {{/if}}
+    </h1>
+    <div class="item padded">
+        <div class="layout right large">
+            <div class="col">
+                <img src="{{auction.image}}" class="img-large">
+            </div>
+            <div class="content pad-med">
+                <p>In category: <strong>{{auction.category}}</strong></p>
+                <p>{{auction.description}}</p>
+                <div class="align-center">
+                    <div>
+                        Current price: $<strong>{{auction.price}}</strong>
+                    </div>
+                    {{#if auction.hasUser}}
+                    {{#if auction.isAuthor}}
+                        {{#if auction.bidders}}
+                        Bid by <strong>{{auction.currentWinnerFullName}}</strong>
+                        <a class="action pad-med cta" href="/close/{{auction._id}}">Close Auction</a>
+                        {{else}}
+                        No bids
+                        {{/if}}
+                    {{else}}
+                        {{#if auction.isWinner}}
+                        <div>
+                            You are currently the <strong>highest bidder</strong> for this auction
+                        </div>
+                        {{else}}
+                        <form class="vertical" method="post" action="/bid/{{auction._id}}">
+                            <label><span>Bid amount</span><input type="number" name="value"></label>
+                            <input class="action" type="submit" value="Place bid">
+                        </form>
+                        {{/if}}
+                    {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <footer>Listed by {{auction.author.firstName}} {{auction.author.lastName}}</footer>
+    </div>
+</section>
