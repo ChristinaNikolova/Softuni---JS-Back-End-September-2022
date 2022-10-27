@@ -1,0 +1,17 @@
+<div class="book">
+    {{#if hasUser}}
+    <div class="info-container-profile">
+        <img src="{{image}}">
+    </div>
+    {{else}}
+    <div class="info-container">
+        <img src="{{image}}">
+        <div class="info">
+            <h2>{{title}}</h2>
+        </div>
+    </div>
+    {{/if}}
+    <div class="details-btn">
+        <a href="/books/{{_id}}" class="details">Details</a>
+    </div>
+</div>

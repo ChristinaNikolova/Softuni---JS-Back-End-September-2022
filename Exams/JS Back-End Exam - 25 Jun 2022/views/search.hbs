@@ -1,0 +1,28 @@
+<section class="crypto-search">
+    <h1>Search</h1>
+
+    <form class="search-form" action="/search" method="get">
+        <input type="text" class="search-coin" name="name" placeholder="Search here..." value="{{result.name}}">
+        <select id="payment" name="payment">
+            <option value="crypto-wallet" {{#if result.isWallet}}selected{{/if}}>Crypto Wallet</option>
+            <option value="credit-card" {{#if result.isCredit}}selected{{/if}}>Credit Card</option>
+            <option value="debit-card" {{#if result.isDebit}}selected{{/if}}>Debit Card</option>
+            <option value="paypal" {{#if result.isPaypal}}selected{{/if}}>PayPal</option>
+        </select>
+        <button type="submit" class="btn-search">Search</button>
+    </form>
+
+    {{#if result.cryptos}}
+    <div class="search-result">
+        <div class="search-list">
+            {{#each result.cryptos}}
+            {{> crypto}}
+            {{/each}}
+        </div>
+    </div>
+    {{else}}
+    <div class="no-match">
+        <p>No match was found!</p>
+    </div>
+    {{/if}}
+</section>
