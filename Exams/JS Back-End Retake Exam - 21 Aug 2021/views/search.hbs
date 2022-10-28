@@ -1,0 +1,15 @@
+<form class="search" action="/search" method="post">
+    <input type="search" name="search" value="{{result.search}}" placeholder="Search here...">
+    <button type="submit">Search</button>
+</form>
+{{#if result.isSearched}}
+<section id="find-section">
+    {{#each result.housings}}
+    {{> housing}}
+    {{else}}
+    <div class="no-data-listing">
+        <p class="no-offer">No match was found for the submitted type...</p>
+    </div>
+    {{/each}}
+</section>
+{{/if}}
