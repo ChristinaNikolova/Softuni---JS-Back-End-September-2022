@@ -1,0 +1,31 @@
+section.details {
+    width: 60em;
+    margin: 3em auto;
+}
+
+section.details .img {
+    text-align: center;
+}
+
+section.details img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.buttons {
+    display: block;
+    margin: 1em 2em 0 auto;
+}
+
+.btn.delete:hover {
+    background-color: red;
+}
+
+.btn.edit:hover {
+    background-color: blue;
+}
+
+.btn.like:hover {
+    background-color: green;
+}
