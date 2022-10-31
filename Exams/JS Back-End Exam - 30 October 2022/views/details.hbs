@@ -1,0 +1,32 @@
+<div class="details-container">
+    <div class="details-container-image">
+        <img src="{{blog.image}}">
+    </div>
+    <div class="details-container-info">
+        <h2>{{blog.title}}</h2>
+        <h3>{{blog.category}}</h3>
+        <h3>By: {{blog.owner.email}}</h3>
+        {{#if blog.list}}
+        <h4>Follow By: {{blog.list}}</h4>
+        {{else}}
+        <h4>There are no followers yet!</h4>
+        {{/if}}
+    </div>
+    <div class="details-container-content">
+        <p>{{blog.content}}</p>
+    </div>
+    {{#if blog.hasUser}}
+    <div class="btn-container">
+        {{#if blog.isOwner}}
+        <a href="/edit/{{blog._id}}">Edit</a>
+        <a href="/delete/{{blog._id}}">Delete</a>
+        {{else}}
+            {{#if blog.isFollowed}}
+            <p class="follow-pub">You already follow this blog!</p>
+            {{else}}
+            <a href="/follow/{{blog._id}}">Follow</a>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{/if}}
+</div>

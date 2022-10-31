@@ -1,0 +1,30 @@
+<section id="user">
+    <div class="user-info">
+        <div class="user-logo">
+            <img src="/static/images/user-logo.webp">
+        </div>
+        <h1 class="user-email">{{user.email}}</h1>
+        <h2 class="created-blogs-count">Total Created Blogs: {{result.ownerBlogs.length}}</h2>
+        <h2 class="followed-blogs-count">Total Followed Blogs: {{result.followBlogs.length}}</h2>
+    </div>
+</section>
+<section class="profile-blogs">
+    <div class="created-blogs">
+        <h2 class="section-title">Created Blogs</h2>
+        {{#each result.ownerBlogs}}
+        {{> blogHome}}
+        {{else}}
+        <h2 class="no-blog-in-profile">You haven't published a blog yet...</h2>
+        {{/each}}
+    </div>
+
+    <div class="followed-blogs">
+        <h2 class="section-title">Followed Blogs</h2>
+        {{#each result.followBlogs}}
+        {{> blogHome}}
+        {{else}}
+        <h2 class="no-blog-in-profile">You have no blogs followed yet…</h2>
+        {{/each}}
+    </div>
+
+</section>

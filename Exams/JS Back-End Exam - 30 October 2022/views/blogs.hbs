@@ -1,0 +1,12 @@
+<section id="all-blogs-page">
+    <article class="all-blogs-title">
+        <h1>All Blogs</h1>
+    </article>
+    {{#each blogs}}
+    {{> blog}}
+    {{else}}
+    <article class="not-available-blogs">
+        <h1>No blogs created yet.</h1>
+    </article>
+    {{/each}}
+</section>
